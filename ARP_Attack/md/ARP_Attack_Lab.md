@@ -8,7 +8,7 @@
 
 本次实验采用`docker-compose`配置文件搭建了一个具有 $3$ 台容器的网络，如图：
 
-![network](E:/classhub/SEED%20LAB/ARP_Attack/image/network.png)
+![network](../image/network.png)
 
 首先，进入 `Labsetup` 文件夹，构建并启动容器，同时使其后台运行：
 
@@ -397,6 +397,13 @@ arp_spoof_with_free(target_ip, spoof_ip, spoof_mac)
 
 ![2-1](../image/2-1.png)
 
+首先，Telnet 是一种明文协议，通信数据（包括用户名和密码）以明文形式传输，我们可以很容易地拦截和篡改。
+
+攻击者主机 M 的目标是成为主机 A 和 B 之间的中间人：
+
+- 拦截 A 和 B 的 Telnet 数据包。
+- 修改 A 和 B 之间发送的数据内容。
+
 ---
 
 
@@ -624,6 +631,16 @@ pkt = sniff(filter=f, prn=spoof_pkt)  # 过滤条件：捕获 IP 地址为 10.9.
 
 
 ## Task 3: MITM Attack on Netcat using ARP Cache Poisoning
+
+**Netcat 是一个网络工具**，用于建立 TCP/UDP 连接，常用于调试和传输数据。
+
+与 Telnet一样，Netcat 默认不提供加密功能，数据以明文形式传输。
+
+攻击目标是：
+
+- **拦截 Netcat 通信**：捕获明文传输的数据。
+- **篡改通信内容**：修改主机 A 和主机 B 之间发送的消息。
+- **伪造回复**：模仿其中一方，向另一方发送伪造的数据。
 
 编写 `mitm-nc.py`：
 
