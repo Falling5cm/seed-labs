@@ -336,7 +336,7 @@ A2：可以，虽然我们并不知道访问网站用户的userid，但是我们
 
 
 
-先对链接 A 进行请求测试（即 same-site request），发现 link , get-form, post-form 请求均发送了 normal, lax, strict三种类型的 cookie。
+先对链接 A 进行请求测试（即 same-site request）, 发现 link , get-form, post-form 请求均发送了 normal, lax, strict三种类型的 cookie。
 
 ![5-2](../image/5-2.png)
 
