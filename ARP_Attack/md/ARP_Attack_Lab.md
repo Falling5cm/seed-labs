@@ -36,7 +36,7 @@ docker exec -it B-10.9.0.6-arp /bin/bash
 
 ### Task1. A: using ARP request
 
-在主机 M 上，构建一个 ARP 请求数据包，将 B 的 IP 地址映射到 M 的 MAC 地址。将数据包发送给 A，并检查攻击是否成功。
+在主机 M 上，构建一个 ARP 请求数据包，将 B 的 ip 地址映射到 M 的 mac 地址。将数据包发送给 A，并检查攻击是否成功。
 
 我们先试用 `ifconfig` 命令查看一下三台容器的 *ip* 和 *mac* 地址。
 
